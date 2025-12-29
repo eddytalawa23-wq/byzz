@@ -1,6 +1,8 @@
-const cards = document.querySelectorAll(".card");
+let slides = document.querySelectorAll(".slide");
+let currentSlide = 0;
 
-cards.forEach(card => {
-  card.onmouseover = () => card.style.transform = "scale(1.05)";
-  card.onmouseout = () => card.style.transform = "scale(1)";
-});
+setInterval(() => {
+  slides[currentSlide].classList.remove("active");
+  currentSlide = (currentSlide + 1) % slides.length;
+  slides[currentSlide].classList.add("active");
+}, 3000);
